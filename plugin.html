@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plugin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $.fn.textalign = function (options) {
+          var setting = $.extend(
+            {
+              textAlign: "center",
+            },
+            options
+          );
+          return this.css({
+            textAlign: setting.textAlign,
+          });
+        };
+        $(".btn").click(function () {
+          $("p").textalign({ textAlign: "right" }); //move paragraph to right
+          //$("p").textalign(); //move paragraph to center(deafult)
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>This is a paragraph</p>
+    <button class="btn">Text Align</button>
+  </body>
+</html>
